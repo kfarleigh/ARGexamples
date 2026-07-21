@@ -100,13 +100,13 @@ sliding_argstats <- function(arg.dat, pop1, pop2, pop1.name, pop2.name){
       all_nodes <- Descendants(tree, type = "tips")
       tip_idx <- tree$tip.label
       
-      test <- lapply(all_nodes, identify_clade, pop1 = pop1, pop2 = pop2, tip_idx = tip_idx)
+      clades <- lapply(all_nodes, identify_clade, pop1 = pop1, pop2 = pop2, tip_idx = tip_idx)
       
-      test.df <- do.call("rbind", test)
+      clades.df <- do.call("rbind", clades)
       
-      test.df$node <- paste(1:length(all_nodes))
+      clades.df$node <- paste(1:length(all_nodes))
       
-      # Remove nodes with only 1 individual and filter for only nodes where there are no contiental individuals
+      # Remove nodes with only 1 individual and filter for only nodes where there are no pop2 individuals
       pop1.df.filt <- test.df %>% filter(n.pop1 > 1, n.pop2 == 0)
       
       if(nrow(pop1.df.filt) > 0){
@@ -188,13 +188,13 @@ sliding_argstats <- function(arg.dat, pop1, pop2, pop1.name, pop2.name){
       all_nodes <- Descendants(tree, type = "tips")
       tip_idx <- tree$tip.label
       
-      test <- lapply(all_nodes, identify_clade, pop1 = pop1, pop2 = pop2, tip_idx = tip_idx)
+      clades <- lapply(all_nodes, identify_clade, pop1 = pop1, pop2 = pop2, tip_idx = tip_idx)
       
-      test.df <- do.call("rbind", test)
+      clades.df <- do.call("rbind", clades)
       
-      test.df$node <- paste(1:length(all_nodes))
+      clades.df$node <- paste(1:length(all_nodes))
       
-      # Remove nodes with only 1 individual and filter for only nodes where there are no contiental individuals
+      # Remove nodes with only 1 individual and filter for only nodes where there are no pop1 individuals
       pop2.df.filt <- test.df %>% filter(n.pop2 > 1, n.pop1 == 0)
       
       if(nrow(pop2.df.filt) > 0){
