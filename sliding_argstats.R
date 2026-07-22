@@ -1,3 +1,8 @@
+# Purpose: Custom functions to estimate ancestral recombination graph statistics while accounting for non-monophyletic relationships
+# Author: Keaka Farleigh, Ph.D.
+# Email: keakafarleigh@gmail.com
+# Date: July 21st, 2026
+
 require(phytools)
 require(ape)
 require(tidyverse)
