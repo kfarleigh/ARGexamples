@@ -4,7 +4,7 @@ require(tidyverse)
 require(phangorn)
 require(parallel)
 
-### Write a custom function in case species are not monophyletic
+### Write a custom function to identify clades
 # dat is a list element
 # pop1 is a vector of individuals in one population
 # pop2 is a vector of individuals in the other populations
